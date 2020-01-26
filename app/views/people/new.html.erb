@@ -1,4 +1,44 @@
+<h1>Add a Contact</h1>
 <%= form_for @person do |f| %>
-  <%= f.text_field :name %> <br /><br />
- <%= f.submit %>
+  <p>
+    <%= f.label :name, "Name: " %>
+    <%= f.text_field :name %> <br /><br />
+  </p>
+  <hr />
+  <%= f.fields_for :addresses do |address| %>
+  <p>
+    <%= address.label :street_address_1, "Street Address 1: " %>
+    <%= address.text_field :street_address_1 %>
+  </p>
+
+  <p>
+    <%= address.label :street_address_2, "Street Address 2: " %>
+    <%= address.text_field :street_address_2 %>
+  </p>
+
+  <p>
+    <%= address.label :city, "City: " %>
+    <%= address.text_field :city %>
+  </p>
+
+  <p>
+    <%= address.label :state, "State: " %>
+    <%= address.text_field :state %>
+  </p>
+
+  <p>
+    <%= address.label :zipcode, "Zipcode: " %>
+    <%= address.text_field :zipcode %>
+  </p>
+
+  <p>
+    <%= address.label :address_type, "Address Type: " %>
+    <%= address.text_field :address_type %>
+  </p>
+
+  <hr />
+  <% end %>
+
+  <br />
+  <%= f.submit "Add Contact" %>
 <% end %>
